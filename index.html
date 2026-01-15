@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高中法律素養課：法律百科互動教室</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; background-color: #f8fafc; }
+        .card:hover { transform: translateY(-5px); transition: 0.3s; }
+        .tab-content { display: none; }
+        .active-tab { display: block; }
+    </style>
+</head>
+<body>
+
+    <nav class="bg-blue-700 text-white p-4 shadow-lg">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-2xl font-bold"><i class="fas fa-gavel mr-2"></i>法律百科高中教室</h1>
+            <div class="space-x-4 text-sm">
+                <a href="https://www.legis-pedia.com/" target="_blank" class="hover:underline">前往官方網站</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-white py-10 border-b">
+        <div class="container mx-auto text-center px-4">
+            <h2 class="text-3xl font-bold text-gray-800">法律不再神祕，從生活開始</h2>
+            <p class="mt-4 text-gray-600 max-w-2xl mx-auto">
+                「法律百科」是一個讓法律變白話的平台。今天我們將透過互動，學習如何利用專業資源解決生活中的法律難題。
+            </p>
+        </div>
+    </header>
+
+    <div class="container mx-auto mt-8 px-4">
+        <div class="flex border-b border-gray-200 space-x-8">
+            <button onclick="openTab('search')" class="tab-link py-2 px-4 border-b-2 border-blue-600 text-blue-600 font-bold">1. 探索主題</button>
+            <button onclick="openTab('quiz')" class="tab-link py-2 px-4 text-gray-500 hover:text-blue-600">2. 情境模擬</button>
+            <button onclick="openTab('dictionary')" class="tab-link py-2 px-4 text-gray-500 hover:text-blue-600">3. 法律翻譯機</button>
+        </div>
+
+        <div id="search" class="tab-content active-tab py-8">
+            <h3 class="text-xl font-bold mb-6 text-blue-800">熱門法律議題排行榜 (點擊前往閱讀)</h3>
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="card bg-white p-6 rounded-xl shadow-md border-l-4 border-orange-400">
+                    <span class="text-xs font-bold text-orange-500 uppercase">校園與生活</span>
+                    <h4 class="text-lg font-bold mt-2">在公開場所偷拍別人違法嗎？</h4>
+                    <p class="text-gray-500 text-sm mt-2">到底什麼是「身體隱私部位」？法律如何界定偷拍？</p>
+                    <a href="https://www.legis-pedia.com/article/government-fundamental-rights/1105" target="_blank" class="inline-block mt-4 text-blue-600 font-semibold hover:underline">立即閱讀課程文章 →</a>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-md border-l-4 border-blue-400">
+                    <span class="text-xs font-bold text-blue-500 uppercase">公民素養</span>
+                    <h4 class="text-lg font-bold mt-2">法律三讀後就生效了嗎？</h4>
+                    <p class="text-gray-500 text-sm mt-2">學習判斷法律生效的時間點，了解立法程序的最後一哩路。</p>
+                    <a href="https://www.legis-pedia.com/article/government-fundamental-rights/1126" target="_blank" class="inline-block mt-4 text-blue-600 font-semibold hover:underline">立即閱讀課程文章 →</a>
+                </div>
+                <div class="card bg-white p-6 rounded-xl shadow-md border-l-4 border-green-400">
+                    <span class="text-xs font-bold text-green-500 uppercase">勞權與權益</span>
+                    <h4 class="text-lg font-bold mt-2">打工族可以請公假嗎？</h4>
+                    <p class="text-gray-500 text-sm mt-2">勞基法規定哪些情況下可以請公假？薪水怎麼算？</p>
+                    <a href="https://www.legis-pedia.com/article/labor-work/1004" target="_blank" class="inline-block mt-4 text-blue-600 font-semibold hover:underline">立即閱讀課程文章 →</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="quiz" class="tab-content py-8">
+            <div class="bg-blue-50 p-8 rounded-2xl">
+                <h3 class="text-2xl font-bold text-blue-900 mb-4 text-center">法律情境大考驗</h3>
+                <div class="max-w-xl mx-auto bg-white p-6 rounded-lg shadow-sm">
+                    <p class="text-lg text-gray-800 font-medium mb-4">問題：如果你在路上遛狗沒有牽繩，雖然狗狗很乖沒咬人，會被處罰嗎？</p>
+                    <div class="space-y-3">
+                        <button onclick="checkAnswer(false)" class="w-full text-left p-3 border rounded hover:bg-gray-50">A. 不會，沒咬人就沒事</button>
+                        <button onclick="checkAnswer(true)" class="w-full text-left p-3 border rounded hover:bg-gray-50">B. 可能會，視地方政府規定與動物保法而定</button>
+                        <button onclick="checkAnswer(false)" class="w-full text-left p-3 border rounded hover:bg-gray-50">C. 只有大型犬（如獒犬）才需要牽繩</button>
+                    </div>
+                    <div id="quiz-feedback" class="mt-4 hidden p-3 rounded font-bold"></div>
+                    <div id="source-link" class="mt-4 hidden text-sm">
+                        <a href="https://www.legis-pedia.com/article/recreation-entertainment/1149" target="_blank" class="text-blue-600 underline">參考法律百科原文解答</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="dictionary" class="tab-content py-8 text-center">
+            <h3 class="text-xl font-bold mb-4">法律翻譯機：你能聽懂法律人說的話嗎？</h3>
+            <p class="text-gray-600 mb-8">法律術語總是艱澀難懂？試著在「法律百科辭典」中搜尋以下關鍵字，並在課堂上分享它的白話意思。</p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <span class="bg-white border-2 border-blue-200 px-6 py-3 rounded-full font-bold text-blue-700">善意第三人</span>
+                <span class="bg-white border-2 border-blue-200 px-6 py-3 rounded-full font-bold text-blue-700">行政處分</span>
+                <span class="bg-white border-2 border-blue-200 px-6 py-3 rounded-full font-bold text-blue-700">不當得利</span>
+                <span class="bg-white border-2 border-blue-200 px-6 py-3 rounded-full font-bold text-blue-700">羈押</span>
+            </div>
+            <div class="mt-10">
+                <a href="https://www.legis-pedia.com/dictionary" target="_blank" class="bg-blue-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-blue-700 transition">前往法律百科辭典查閱</a>
+            </div>
+        </div>
+    </div>
+
+    <footer class="mt-20 bg-gray-800 text-gray-400 py-10">
+        <div class="container mx-auto px-4 text-center">
+            <p>本教材內容彙整自 <a href="https://www.legis-pedia.com/" class="underline">法律百科 Legis-Pedia</a></p>
+            <p class="text-sm mt-2">僅供教育使用。鼓勵學生自主探索，建立法治意識。</p>
+        </div>
+    </footer>
+
+    <script>
+        function openTab(tabName) {
+            const contents = document.getElementsByClassName('tab-content');
+            const links = document.getElementsByClassName('tab-link');
+            
+            for (let content of contents) content.classList.remove('active-tab');
+            for (let link of links) {
+                link.classList.remove('border-b-2', 'border-blue-600', 'text-blue-600', 'font-bold');
+                link.classList.add('text-gray-500');
+            }
+            
+            document.getElementById(tabName).classList.add('active-tab');
+            event.currentTarget.classList.add('border-b-2', 'border-blue-600', 'text-blue-600', 'font-bold');
+            event.currentTarget.classList.remove('text-gray-500');
+        }
+
+        function checkAnswer(isCorrect) {
+            const feedback = document.getElementById('quiz-feedback');
+            const sourceLink = document.getElementById('source-link');
+            feedback.classList.remove('hidden', 'bg-red-100', 'text-red-700', 'bg-green-100', 'text-green-700');
+            
+            if (isCorrect) {
+                feedback.innerHTML = "答對了！許多縣市都有訂定動物保護自治條例，未繫牽繩可能會被罰款。";
+                feedback.classList.add('bg-green-100', 'text-green-700');
+            } else {
+                feedback.innerHTML = "答錯囉！雖然狗狗很乖，但基於公共安全與秩序，法律多有強制規定。";
+                feedback.classList.add('bg-red-100', 'text-red-700');
+            }
+            sourceLink.classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
